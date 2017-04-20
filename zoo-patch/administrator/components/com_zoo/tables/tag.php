@@ -44,7 +44,7 @@ class TagTable extends AppTable {
 			.(!empty($tag) ? " AND a.name = ".$db->Quote($tag) : "")
 			.($published == true ? " AND b.state = 1"
 			.(($type_id) ? " AND b.type = ".$db->Quote($type_id) : "")
-			.(($category_id) ? " AND c.category_id ".(is_array($category_id) ? " IN (".implode(",", $category_id).")" : " = ".(int) $category_id) : "")
+			.(($category_id) ? " AND c.category_id ".(is_array($category_id) ? " IN (".implode(",", $category_id).")" : " = ".(int) $category_id) : ""): "")
             // zoo_hack_start
             //." AND (b.publish_up = ".$null." OR b.publish_up <= ".$now.")"
             //." AND (b.publish_down = ".$null." OR b.publish_down >= ".$now.")": "")
